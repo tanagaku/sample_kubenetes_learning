@@ -23,7 +23,10 @@ metadata:
   name: order2-service
 spec:
   type: LoadBalancer
-  port: 8080
-  targetPort: 80
-selecter:
-  app: sample-app
+  ports:
+    - name: "http-port"
+      protocol: "TCP"
+      port: 8080
+      targetPort: 80
+  selector:
+    app: sample-app
